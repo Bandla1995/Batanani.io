@@ -55,7 +55,7 @@ model Appointment {
   date      DateTime
   time      String // store time as string
   duration  Int               @default(30) // duration in minutes
-  status    AppointmentStatus @default(CONFIRMED)
+  status    AppointmentStatus @default(PENDING)
   notes     String?
   reason    String?
   createdAt DateTime          @default(now())

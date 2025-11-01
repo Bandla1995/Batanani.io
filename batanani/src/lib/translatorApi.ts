@@ -1,13 +1,13 @@
-// Translator API utility (example: Google Translate)
-export async function translateText(
-	text: string,
-	targetLang: string
-): Promise<string> {
-	const res = await fetch('/api/translate', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify({ text, targetLang }),
-	});
-	const data = await res.json();
-	return data.translatedText;
-}
+// Re-export Chrome translator functions for backward compatibility
+export {
+	translateText,
+	translateWithChrome,
+	translateStreaming,
+	checkTranslatorAvailability,
+	canTranslate,
+	createTranslator,
+	destroyAllTranslators,
+	destroyTranslator,
+	getSupportedLanguages,
+	detectLanguage,
+} from './chromeTranslator';

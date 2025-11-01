@@ -1,6 +1,10 @@
 // Utility to call Gemini API route
 export async function getGeminiResponse(prompt: string): Promise<string> {
-	const apiKey = process.env.GEMINI_API_KEY!;
+	const apiKey = process.env.GEMINI_API_KEY;
+	if (!apiKey) {
+		throw new Error('Gemini API key not found');
+	}
+
 	const res = await fetch(
 		`https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
 		{
